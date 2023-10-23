@@ -1,0 +1,14 @@
+body {
+  font-family: -apple-system, 'Inter', sans-serif;
+}
+
+#theme_toggler {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  background: #0096c3;
+  padding: 20px;
+  border-radius: 30px;
+  color: #fff;
+  cursor: pointer;
+}
