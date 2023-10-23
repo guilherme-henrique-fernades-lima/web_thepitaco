@@ -1,3 +1,15 @@
+<?php
+require "db_config.php";
+require "config/helper.php";
+require "config/url.class.php";
+require "./functions/get.php";
+
+// $banners = getBanners();
+// $blogs = getAllBlogs();
+$blogs1 = getBlogs1();
+$blogs2 = getBlogs2();
+// $categories = getCategories();
+?>
 <!DOCTYPE html>
 <html lang="en">
 

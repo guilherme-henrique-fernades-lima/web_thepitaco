@@ -14,7 +14,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
-$categories = getCategoriesBlog();
+$categories = getCategories();
 $blogs = getAllBlogs();
 $page = 'blogs';
 ?>

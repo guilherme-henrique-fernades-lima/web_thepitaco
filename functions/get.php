@@ -1,13 +1,13 @@
 <?php
-function getCategoriesblog()
+function getCategories()
 {
   global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM categories WHERE type = 'blog' order by id desc");
+  $stmt = $pdo->prepare("SELECT * FROM categories order by id desc");
   $stmt->execute();
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getAllblogs()
+function getAllBlogs()
 {
   global $pdo;
   $stmt = $pdo->prepare("SELECT blogs.id, blogs.img, blogs.name, c.name as categorie_type FROM blogs INNER JOIN categories c ON blogs.categorie_id = c.id order by blogs.id desc;");
@@ -15,7 +15,7 @@ function getAllblogs()
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getblogs1()
+function getBlogs1()
 {
   global $pdo;
   $stmt = $pdo->prepare("SELECT * FROM blogs where categorie_id = 4 order by id desc");
@@ -23,7 +23,7 @@ function getblogs1()
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getblogs2()
+function getBlogs2()
 {
   global $pdo;
   $stmt = $pdo->prepare("SELECT * FROM blogs where categorie_id = 5 order by id desc");
@@ -31,24 +31,9 @@ function getblogs2()
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getblog($id){
+function getBlog($id){
   global $pdo;
   $stmt = $pdo->prepare("SELECT * FROM blogs where id = $id order by id desc");
-  $stmt->execute();
-  return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getAlbumId($id){
-  global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM album where id = $id order by id desc");
-  $stmt->execute();
-  return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getAlbum()
-{
-  global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM album order by id desc");
   $stmt->execute();
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
