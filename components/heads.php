@@ -78,4 +78,18 @@
             display: block;
         }
     </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        color1: '#FC951F',
+                        color2: '#00258E',
+                    }
+                }
+            }
+        }
+    </script>
+
 </head>
