@@ -14,16 +14,24 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
-$categories = getCategories();
-$blogs = getAllBlogs();
-$page = 'blogs';
+try {
+  // Recupera os dados da tabela de leads
+  $stmt = $pdo->prepare("SELECT * FROM leads");
+  $stmt->execute();
+  $leads = $stmt->fetchAll();
+} catch (PDOException $e) {
+  echo "Erro ao recuperar dados: " . $e->getMessage();
+}
+
+$pdo = null;
+$page = 'leads';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-  <title>Blogs THEPITACO</title>
+  <title>Leads THEPITACO</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,8 +48,6 @@ $page = 'blogs';
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.2/tinymce.min.js" integrity="sha512-MbhLUiUv8Qel+cWFyUG0fMC8/g9r+GULWRZ0axljv3hJhU6/0B3NoL6xvnJPTYZzNqCQU3+TzRVxhkE531CLKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -51,9 +57,6 @@ $page = 'blogs';
     <div class="max-w-7xl px-4 pb-8 mx-auto py-8">
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div class="flex items-center justify-between py-4 bg-white">
-          <div>
-
-          </div>
           <div class="flex space-x-2">
             <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5" type="button">
               Opções
@@ -63,12 +66,9 @@ $page = 'blogs';
             </button>
             <div>
               <div id="dropdownAction" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                <ul class="text-sm text-gray-700" aria-labelledby="dropdownActionButton">
+                <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownActionButton">
                   <li>
-                    <button data-modal-target="addBlogModal" data-modal-show="addBlogModal" class="block px-4 py-2 w-full hover:bg-gray-100">Adicionar Blog</button>
-                  </li>
-                  <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 w-full text-center">Exportar Dados</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Exportar Dados</a>
                   </li>
                 </ul>
               </div>
@@ -86,38 +86,32 @@ $page = 'blogs';
         <table class="w-full text-sm text-left text-gray-500">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
-              <th scope="col" class="px-6 py-3">
-                Nome
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Localidade
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Ação
-              </th>
+              <th scope="col" class="px-6 py-3">ID</th>
+              <th scope="col" class="px-6 py-3">Nome</th>
+              <th scope="col" class="px-6 py-3">Assunto</th>
+              <th scope="col" class="px-6 py-3">E-mail</th>
+              <th scope="col" class="px-6 py-3">Nº Celular</th>
+              <th scope="col" class="px-6 py-3">Cidade</th>
+              <th scope="col" class="px-6 py-3">Tipo</th>
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($blogs as $blog) { ?>
+            <?php foreach ($leads as $lead) { ?>
               <tr class="bg-white border-b">
-                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
-                  <img class='lazy w-10' src='./uploads/blogs/<?php echo $blog['img']; ?>'>
-                  <div class="pl-3">
-                    <div class="text-base font-semibold"><?php echo $blog['name']; ?></div>
-                  </div>
-                </th>
-                <th class="px-6 py-3">
-                  <?php echo $blog['categorie_id']; ?>
-                </th>
+                <td class="pl-5 text-gray-900 font-semibold"><?php echo $lead['id']; ?></td>
+                <td class="pl-5 text-gray-900 font-semibold"><?php echo $lead['name']; ?></td>
+                <td class="pl-5 text-gray-900 font-semibold"><?php echo $lead['subject']; ?></td>
+                <td class="pl-5 text-gray-900 font-semibold"><?php echo $lead['email']; ?></td>
+                <td class="pl-5 text-gray-900 font-semibold"><?php echo $lead['whatsapp']; ?></td>
+                <td class="pl-5 text-gray-900 font-semibold"><?php echo $lead['city']; ?></td>
+                <td class="pl-5 text-gray-900 font-semibold"><?php echo $lead['type']; ?></td>
                 <td class="px-6 py-4">
-                  <a href="./editar_blog.php?id=<?php echo $blog['id']; ?>" type="button" class="font-medium text-blue-600 hover:underline">Editar</a>
-                  <a href="./controllers/delete_blog.php?id=<?php echo $blog['id']; ?>" type="button" class="font-medium text-red-600 hover:underline">Excluir</a>
+                  <a href="./controllers/delete_lead.php?id=<?php echo $lead['id']; ?>" type="button" class="font-medium text-red-600 hover:underline">Excluir</a>
                 </td>
               </tr>
             <?php } ?>
           </tbody>
         </table>
-        <?php include "./components/modal_add_blog.php"; ?>
       </div>
     </div>
   </div>
@@ -143,14 +137,6 @@ $page = 'blogs';
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
-  <script src="../assets/js/lz.js"></script>
-  <script>
-    tinymce.init({
-      selector: '#description',
-      plugins: 'print preview importcss searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
-      toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment'
-    });
-  </script>
 </body>
 
 </html>

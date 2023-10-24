@@ -5,7 +5,7 @@ require "../../db_config.php";
 if (!empty($_GET['id'])) {
   // Obter o ID do banner
   $id = $_GET['id'];
-  deleteProduct($id);
+  deleteBlog($id);
   header('Location: ../blogs.php');
   exit();
 } else {
@@ -15,7 +15,7 @@ if (!empty($_GET['id'])) {
 }
 
 // Função para excluir um banner pelo ID
-function deleteProduct($id)
+function deleteBlog($id)
 {
   global $pdo;
   $stmt = $pdo->prepare("DELETE FROM blogs WHERE id = :id");

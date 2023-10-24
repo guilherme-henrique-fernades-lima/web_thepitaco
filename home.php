@@ -4,11 +4,7 @@ require "config/helper.php";
 require "config/url.class.php";
 require "./functions/get.php";
 
-// $banners = getBanners();
-// $blogs = getAllBlogs();
-$blogs1 = getBlogs1();
-$blogs2 = getBlogs2();
-// $categories = getCategories();
+$blogs = getAllBlogs();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +18,22 @@ $blogs2 = getBlogs2();
 <body>
     <?php include './components/navbar.php' ?>
     <?php include './components/blogs.php' ?>
+    <?php include './components/quem-somos.php' ?>
     <?php include './components/footer.php' ?>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileMenuButton = document.querySelector('[data-collapse-toggle="mobile-menu-2"]');
+            const mobileMenu = document.querySelector('#mobile-menu-2');
+
+            mobileMenuButton.addEventListener("click", function() {
+                const expanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
+                mobileMenuButton.setAttribute("aria-expanded", !expanded);
+                mobileMenu.style.display = expanded ? "none" : "block";
+            });
+        });
+    </script>
+
 </body>
 
 </html>

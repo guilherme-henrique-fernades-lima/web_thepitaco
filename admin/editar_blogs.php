@@ -17,14 +17,13 @@ $user = $stmt->fetch();
 
 $id = $_GET['id'];
 $blogs = getBlog($id);
-
-$categories = getCategoriesBlog();
+$categories = getCategories();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-  <title>Notícias APCEF/PI</title>
+  <title>Notícias THEPITACO</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

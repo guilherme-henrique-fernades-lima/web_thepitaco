@@ -5,10 +5,10 @@
                 <div class="flex flex-col">
                     <div class="">
                         <a href="home.php">
-                            <img src="./assets/img/Logo_Leal1.png" alt="Logo_Leal Comunicacao 2023">
+                            <img src="./assets/img/logo.png" alt="logo">
                         </a>
                     </div>
-                    <div class="mt-8 flex space-x-4 text-color1">
+                    <div class="mt-8 flex justify-center space-x-4 text-color1">
                         <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
                             <span class="sr-only">Facebook</span>
                             <svg class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -33,33 +33,30 @@
 
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
                 <div class="">
-                    <h3 class="mb-6 text-sm font-semibold uppercase text-color1">Leal Comunicação<br> & Marketing</h3>
+                    <h3 class="mb-6 text-sm font-semibold uppercase text-color1">ThePitaco</h3>
                     <ul class="text-color1">
                         <li class="mb-4">
-                            <a href="#" class=" hover:underline">Página Inicial</a>
+                            <a href="./home.php" class=" hover:underline">Página Inicial</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Quem Somos</a>
+                            <a href="./quem-somos.php" class="hover:underline">Quem Somos</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Serviços</a>
+                            <a href="./colunistas.php" class="hover:underline">Colunistas</a>
                         </li>
                     </ul>
                 </div>
                 <div class="">
-                    <h3 class="mb-6 text-sm font-semibold text-color1 uppercase">Serviços</h3>
+                    <h3 class="mb-6 text-sm font-semibold text-color1 uppercase">Blogs</h3>
                     <ul class="text-color1">
                         <li class="mb-4">
-                            <a href="#" class=" hover:underline">About</a>
+                            <a href="./teresina.php" class=" hover:underline">Teresina</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Careers</a>
+                            <a href="./piaui.php" class="hover:underline">Piauí</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Brand Center</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="#" class="hover:underline">Blog</a>
+                            <a href="./nacional.php" class="hover:underline">Nacional</a>
                         </li>
                     </ul>
                 </div>
@@ -67,7 +64,10 @@
                     <h3 class="mb-6 text-sm font-semibold text-color1 uppercase">Mais Informações</h3>
                     <ul class="text-color1">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Contato</a>
+                            <a href="./contato.php" class="hover:underline">Contato</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="./anuncie-aqui.php" class="hover:underline">Anuncie Aqui!</a>
                         </li>
                     </ul>
                 </div>

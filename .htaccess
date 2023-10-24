@@ -1,0 +1,10 @@
+DirectoryIndex home.php
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^home$ home.php [QSA,L,NC]
+RewriteRule ^quem-somos$ quem-somos.php [QSA,L,NC]
+RewriteRule ^blog\/([0-9A-z_-]+)$ blog.php?slug=$1 [QSA,L,NC]
+RewriteRule ^blogs$ blogs.php [QSA,L,NC]
+RewriteRule ^contato$ contato.php [QSA,L,NC]

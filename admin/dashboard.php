@@ -15,14 +15,14 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
-$leads = getAllLeads();
+$leads = getLeads();
 $page = 'dash';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-  <title>Dashboard de Inscrições APCEF/PI</title>
+  <title>Dashboard THEPITACO</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,15 +50,6 @@ $page = 'dash';
     <div class="max-w-7xl px-4 pb-8 mx-auto py-8">
       <div class="p-5 relative overflow-x-auto shadow-md sm:rounded-lg">
         <div class="lg:flex space-y-2 items-center justify-between py-4 bg-white">
-          <div>
-          <h4 class="font-bold text-gray-700">INSCRIÇÕES:
-							<?php
-							$sth = $pdo->prepare("SELECT count(*) as total from inscricoes");
-							$sth->execute();
-							print_r($sth->fetchColumn());
-							?> CADASTROS
-						</h4>
-          </div>
           <div class="lg:flex space-x-2">
             <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 hidden lg:block" type="button">
               Opções
@@ -89,10 +80,7 @@ $page = 'dash';
                 Nome
               </th>
               <th scope="col" class="px-6 py-3">
-                Categoria
-              </th>
-              <th scope="col" class="px-6 py-3">
-                Telefone
+                Tipo
               </th>
               <th scope="col" class="px-6 py-3">
                 Status
@@ -106,39 +94,37 @@ $page = 'dash';
             <?php foreach ($leads as $leads) { ?>
               <tr class="bg-white border-b">
                 <td class="px-6 py-4 text-gray-900 whitespace-nowrap">
-                  <div class="text-base font-semibold"><?php echo $leads['nome']; ?></div>
+                  <div class="text-base font-semibold"><?php echo $lead['nome']; ?></div>
                 </td>
-
                 <td class="px-6 py-4 text-gray-900 whitespace-nowrap">
-                  <div class="text-base font-semibold"><?php echo $leads['categoria']; ?></div>
-                </td>
-
-                <td class="px-6 py-4 text-gray-900 whitespace-nowrap">
-                  <div class="text-base font-semibold"><?php echo $leads['telefone']; ?></div>
+                  <div class="text-base font-semibold"><?php echo $lead['type']; ?></div>
                 </td>
                 <td class="px-6 py-4">
                   <div class="flex items-center space-x-2">
-                    <div class="text-base font-semibold"><?php echo $leads['status']; ?></div>
+                    <div class="text-base font-semibold"><?php echo $lead['status']; ?></div>
                     <div class="h-2.5 w-2.5 rounded-full 
-                    <?php 
-                    if ($leads['status'] == 'NÃO VAI') { echo "bg-gray-500";}
-                    if ($leads['status'] == 'PAGO') { echo "bg-green-500";}
-                    if (($leads['status'] == 'Pendente') or ($leads['status'] == 'PENDENTE')) { echo "bg-yellow-500";}
+                    <?php
+                    if ($lead['status'] == 'Atendido') {
+                      echo "bg-green-500";
+                    }
+                    if (($lead['status'] == 'Pendente') or ($lead['status'] == 'PENDENTE')) {
+                      echo "bg-red-500";
+                    }
                     ?>                           
                     mr-2"></div>
                   </div>
                 </td>
                 <td class="px-6 py-4 text-gray-900 whitespace-nowrap">
-                  <div class="text-base font-semibold"><?php echo $leads['data_criacao']; ?></div>
+                  <div class="text-base font-semibold"><?php echo $lead['data_criacao']; ?></div>
                 </td>
                 <td class="px-6 py-4">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btnAbrirModal" data-parametro="<?php echo htmlspecialchars(json_encode($leads)); ?>">Ver mais</button>
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btnAbrirModal" data-parametro="<?php echo htmlspecialchars(json_encode($leads)); ?>">Ver mais</button>
                 </td>
               </tr>
             <?php } ?>
           </tbody>
         </table>
-        <?php include "./components/modal_view_lead.php"; 
+        <?php include "./components/modal_view_lead.php";
         ?>
       </div>
     </div>

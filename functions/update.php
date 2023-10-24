@@ -14,18 +14,17 @@ function updateCategorie($id, $name)
   $stmt->execute();
 }
 
-function updateNoticias($id, $name, $description, $categorie_id, $img)
+function updateBlog($id, $name, $description, $categorie_id)
 {
   global $pdo;
   if ($img) {
-    $stmt = $pdo->prepare("UPDATE noticias SET name = :name, description = :description, categorie_id = :categorie_id, img = :img WHERE id = :id");
+    $stmt = $pdo->prepare("UPDATE blogs SET name = :name, description = :description, categorie_id = :categorie_id WHERE id = :id");
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':categorie_id', $categorie_id);
-    $stmt->bindValue(':img', $img);
     $stmt->bindParam(':id', $id);
   } else {
-    $stmt = $pdo->prepare("UPDATE noticias SET name = :name, description = :description, categorie_id = :categorie_id WHERE id = :id");
+    $stmt = $pdo->prepare("UPDATE blogs SET name = :name, description = :description, categorie_id = :categorie_id WHERE id = :id");
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':categorie_id', $categorie_id);
@@ -34,28 +33,12 @@ function updateNoticias($id, $name, $description, $categorie_id, $img)
   $stmt->execute();
 }
 
-// Função para atualizar as imagens do usuário
-function updateSedesImages($userId, $newImagesPaths)
+function updateBlogImage($userId, $newImagePath)
 {
   global $pdo;
 
   try {
-    // Atualizar o campo de imagens do usuário
-    $imagesPathsString = implode(',', $newImagesPaths);
-    $sqlUpdate = "UPDATE sedes SET imagens = ? WHERE id = ?";
-    $stmtUpdate = $pdo->prepare($sqlUpdate);
-    $stmtUpdate->execute([$imagesPathsString, $userId]);
-  } catch (PDOException $e) {
-    echo 'Erro ao atualizar as imagens do usuário: ' . $e->getMessage();
-  }
-}
-
-function updateEspacoImage($userId, $newImagePath)
-{
-  global $pdo;
-
-  try {
-    $sql = "UPDATE espacos SET img = ? WHERE id = ?";
+    $sql = "UPDATE blogs SET img = ? WHERE id = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$newImagePath, $userId]);
   } catch (PDOException $e) {
@@ -64,43 +47,14 @@ function updateEspacoImage($userId, $newImagePath)
 }
 
 // Função para atualizar as imagens do usuário
-function updateEspacoImages($userId, $newImagesPaths)
+function updateBlogImages($userId, $newImagesPaths)
 {
   global $pdo;
 
   try {
     // Atualizar o campo de imagens do usuário
     $imagesPathsString = implode(',', $newImagesPaths);
-    $sqlUpdate = "UPDATE espacos SET imagens = ? WHERE id = ?";
-    $stmtUpdate = $pdo->prepare($sqlUpdate);
-    $stmtUpdate->execute([$imagesPathsString, $userId]);
-  } catch (PDOException $e) {
-    echo 'Erro ao atualizar as imagens do usuário: ' . $e->getMessage();
-  }
-}
-
-function updateAlbumImage($userId, $newImagePath)
-{
-  global $pdo;
-
-  try {
-    $sql = "UPDATE espacos SET img = ? WHERE id = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$newImagePath, $userId]);
-  } catch (PDOException $e) {
-    echo 'Erro ao atualizar a imagem de perfil: ' . $e->getMessage();
-  }
-}
-
-// Função para atualizar as imagens do usuário
-function updateAlbumImages($userId, $newImagesPaths)
-{
-  global $pdo;
-
-  try {
-    // Atualizar o campo de imagens do usuário
-    $imagesPathsString = implode(',', $newImagesPaths);
-    $sqlUpdate = "UPDATE espacos SET imagens = ? WHERE id = ?";
+    $sqlUpdate = "UPDATE blogs SET imagens = ? WHERE id = ?";
     $stmtUpdate = $pdo->prepare($sqlUpdate);
     $stmtUpdate->execute([$imagesPathsString, $userId]);
   } catch (PDOException $e) {
