@@ -8,7 +8,7 @@
                             <img src="./assets/img/logo.png" alt="logo">
                         </a>
                     </div>
-                    <div class="mt-8 flex justify-center space-x-4 text-color1">
+                    <div class="mt-8 flex justify-center space-x-4 text-black">
                         <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
                             <span class="sr-only">Facebook</span>
                             <svg class="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -33,8 +33,8 @@
 
             <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
                 <div class="">
-                    <h3 class="mb-6 text-sm font-semibold uppercase text-color1">ThePitaco</h3>
-                    <ul class="text-color1">
+                    <h3 class="mb-6 text-sm font-bold uppercase text-color2">ThePitaco</h3>
+                    <ul class="text-black">
                         <li class="mb-4">
                             <a href="./home.php" class=" hover:underline">Página Inicial</a>
                         </li>
@@ -47,8 +47,8 @@
                     </ul>
                 </div>
                 <div class="">
-                    <h3 class="mb-6 text-sm font-semibold text-color1 uppercase">Blogs</h3>
-                    <ul class="text-color1">
+                    <h3 class="mb-6 text-sm font-bold text-color2 uppercase">Blogs</h3>
+                    <ul class="text-black">
                         <li class="mb-4">
                             <a href="./teresina.php" class=" hover:underline">Teresina</a>
                         </li>
@@ -61,8 +61,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="mb-6 text-sm font-semibold text-color1 uppercase">Mais Informações</h3>
-                    <ul class="text-color1">
+                    <h3 class="mb-6 text-sm font-bold text-color2 uppercase">Mais Informações</h3>
+                    <ul class="text-black">
                         <li class="mb-4">
                             <a href="./contato.php" class="hover:underline">Contato</a>
                         </li>
@@ -72,21 +72,21 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="mb-6 text-sm font-semibold text-color1 uppercase">Legal</h3>
-                    <ul class="text-color1">
+                    <h3 class="mb-6 text-sm font-bold text-color2 uppercase">Legal</h3>
+                    <ul class="text-black">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacidade</a>
                         </li>
-                    </ul>
+                    </ul>   
                 </div>
             </div>
         </div>
 
         <div class="text-center">
             <div class="pt-10">
-                <span class="block text-xs text-center text-color1">Site criado por
+                <span class="block text-xs text-center text-color2">Site criado por
                 </span>
-                <span class="block text-xs text-center text-color1">Web Developer Full Stack: @cairofelipedev
+                <span class="block text-xs text-center text-color2">Web Developer Full Stack: @cairofelipedev
                 </span>
             </div>
         </div>
