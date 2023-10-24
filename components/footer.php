@@ -4,8 +4,8 @@
             <div class="mx-auto px-5 flex items-center">
                 <div class="flex flex-col">
                     <div class="">
-                        <a href="home.php">
-                            <img src="./assets/img/logo.png" alt="logo">
+                        <a href="<?php echo $URI->base("/home"); ?>" class="flex justify-center">
+                            <img src="<?php echo $URI->base("/assets/img/logo.png"); ?>" class="logo lazy" alt="logo" />
                         </a>
                     </div>
                     <div class="mt-8 flex justify-center space-x-4 text-black">
@@ -77,7 +77,7 @@
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacidade</a>
                         </li>
-                    </ul>   
+                    </ul>
                 </div>
             </div>
         </div>

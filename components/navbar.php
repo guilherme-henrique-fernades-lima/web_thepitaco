@@ -1,8 +1,8 @@
 <header class="w-full shadow">
   <nav class="border-gray-200 py-2.5">
     <div class="flex flex-wrap items-center justify-between max-w-6xl px-4 mx-auto">
-      <a href="home.php" class="flex items-center">
-        <img src="./assets/img/logo.png" class="w-52" alt="logo" />
+      <a href="<?php echo $URI->base("home.php"); ?>" class="flex items-center">
+      <img class="w-52" src="<?php echo $URI->base("/assets/img/logo.png"); ?>" class="logo" alt="logo" />
         <span class="self-center text-xl font-semibold whitespace-nowrap"></span>
       </a>
       <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-color1 rounded-lg lg:hidden focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false">
