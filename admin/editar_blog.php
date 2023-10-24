@@ -16,14 +16,14 @@ $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
 $id = $_GET['id'];
-$blogs = getBlog($id);
+$blog = getBlog($id);
 $categories = getCategories();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-  <title>Notícias THEPITACO</title>
+  <title>Blogs THEPITACO</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +52,7 @@ $categories = getCategories();
     <?php include "components/header.php" ?>
     <div class="max-w-7xl px-4 pb-8 mx-auto py-8">
       <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <form action="./controllers/edit_blogs.php?id=<?php echo $blogs[0]['id']; ?>" method="POST" enctype="multipart/form-data" class="relative bg-white rounded-lg shadow">
+        <form action="./controllers/edit_blog.php?id=<?php echo $blog[0]['id']; ?>" method="POST" enctype="multipart/form-data" class="relative bg-white rounded-lg shadow">
           <!-- Modal header -->
           <div class="flex items-start justify-between p-4 border-b rounded-t">
             <h3 class="text-xl font-semibold text-gray-900">
@@ -64,9 +64,9 @@ $categories = getCategories();
             <div class="grid grid-cols-6 gap-6">
               <div class="col-span-6 sm:col-span-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900">Título</label>
-                <input name="name" type="text" value="<?php echo $blogs[0]['name']; ?>" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5" placeholder="Nome da notícia" required="">
+                <input name="name" type="text" value="<?php echo $blog[0]['name']; ?>" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5" placeholder="Nome da notícia" required="">
               </div>
-              <input id="id" name="id" type="hidden" value="<?php echo $blogs[0]['id']; ?>">
+              <input id="id" name="id" type="hidden" value="<?php echo $blog[0]['id']; ?>">
               <div class="col-span-6 sm:col-span-3">
                 <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900">Imagem</label>
                 <input type="file" id="img" name="img">
@@ -75,7 +75,7 @@ $categories = getCategories();
                 <label for="categoria" class="block mb-2 text-sm font-medium text-gray-900">Categorias</label>
                 <select class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5" name="categorie_id">
                   <?php foreach ($categories as $categorie) {
-                    if ($categorie['id'] == $blogs[0]['categorie_id']) { ?>
+                    if ($categorie['id'] == $blog[0]['categorie_id']) { ?>
                       <option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['name']; ?> (selecionado)</option>
                   <?php }
                   } ?>
@@ -85,7 +85,7 @@ $categories = getCategories();
                 </select>
               </div>
             </div>
-            <textarea name="description" id="description" type="text"><?php echo $blogs[0]['description']; ?></textarea>
+            <textarea name="description" id="description" type="text"><?php echo $blog[0]['description']; ?></textarea>
           </div>
           <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b">
             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Editar</button>
