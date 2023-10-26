@@ -61,3 +61,21 @@ function updateBlogImages($userId, $newImagesPaths)
     echo 'Erro ao atualizar as imagens do usuário: ' . $e->getMessage();
   }
 }
+
+function updateBanner($id, $name, $img, $link)
+{
+  global $pdo;
+  if ($img) {
+    $stmt = $pdo->prepare("UPDATE banners SET name = :name, img=:img, link=:link WHERE id = :id");
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':link', $link);
+    $stmt->bindValue(':img', $img);
+    $stmt->bindParam(':id', $id);
+  } else {
+    $stmt = $pdo->prepare("UPDATE banners SET name = :name, link=:link WHERE id = :id");
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':link', $link);
+    $stmt->bindParam(':id', $id);
+  }
+  $stmt->execute();
+}

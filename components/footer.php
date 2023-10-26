@@ -8,6 +8,9 @@
                             <img src="<?php echo $URI->base("/assets/img/logo.png"); ?>" class="logo lazy" alt="logo" />
                         </a>
                     </div>
+                    <div class="flex itens-center">
+                        <h1 class="text-center">Nosso compromisso é levar informações a toda população da forma mais séria permitida</h1>
+                    </div>
                     <div class="mt-8 flex justify-center space-x-4 text-black">
                         <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
                             <span class="sr-only">Facebook</span>

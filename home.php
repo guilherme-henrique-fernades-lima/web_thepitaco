@@ -15,6 +15,7 @@ $URI = new URI();
 </head>
 
 <body>
+    <?php include './components/banners.php' ?>
     <?php include './components/navbar.php' ?>
     <?php include './components/blogs.php' ?>
     <?php include './components/quem-somos.php' ?>
