@@ -1,8 +1,32 @@
 <?php
-function getCategories()
+function getAllCategories()
 {
   global $pdo;
   $stmt = $pdo->prepare("SELECT * FROM categories order by id desc");
+  $stmt->execute();
+  return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getCategories1()
+{
+  global $pdo;
+  $stmt = $pdo->prepare("SELECT * FROM categories where id = 1 order by id desc");
+  $stmt->execute();
+  return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getCategories2()
+{
+  global $pdo;
+  $stmt = $pdo->prepare("SELECT * FROM categories where id = 2 order by id desc");
+  $stmt->execute();
+  return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getCategories3()
+{
+  global $pdo;
+  $stmt = $pdo->prepare("SELECT * FROM categories where id = 3 order by id desc");
   $stmt->execute();
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -18,7 +42,7 @@ function getAllBlogs()
 function getBlogs1()
 {
   global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM blogs where categorie_id = Teresina order by id desc");
+  $stmt = $pdo->prepare("SELECT * FROM blogs where categorie_id = 1 order by id desc");
   $stmt->execute();
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -26,7 +50,7 @@ function getBlogs1()
 function getBlogs2()
 {
   global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM blogs where categorie_id = Piauí order by id desc");
+  $stmt = $pdo->prepare("SELECT * FROM blogs where categorie_id = 2 order by id desc");
   $stmt->execute();
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -34,7 +58,7 @@ function getBlogs2()
 function getBlogs3()
 {
   global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM blogs where categorie_id = Nacional order by id desc");
+  $stmt = $pdo->prepare("SELECT * FROM blogs where categorie_id = 3 order by id desc");
   $stmt->execute();
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

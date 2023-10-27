@@ -17,7 +17,7 @@ $user = $stmt->fetch();
 
 $id = $_GET['id'];
 $blog = getBlog($id);
-$categories = getCategories();
+$categories = getAllCategories();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -18,7 +18,7 @@ $user = $stmt->fetch();
 $id = $_GET['id'];
 $categorie = getCategorie($id);
 
-function getCategorie($id)
+function getAllCategorie($id)
 {
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM categories WHERE id = :id");
