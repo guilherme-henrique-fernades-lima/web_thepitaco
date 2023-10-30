@@ -6,19 +6,18 @@
 
     <!-- Meta SEO -->
     <meta name="title" content="thepitaco">
-    <meta name="description" content="Get started with a free and open-source landing page built with Tailwind CSS and the Flowbite component library.">
+    <meta name="description" content="thepitaco">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="language" content="English">
-    <meta name="author" content="Themesberg">
+    <meta name="author" content="@cairofelipedev">
 
     <!-- Social media share -->
     <meta property="og:title" content="thepitaco">
     <meta property="og:title" content="thepitaco">
     <meta property="og:site_name" content="">
-    <meta property="og:url" content="http://br220.teste.website/~cairod86/leal/">
-    <meta property="og:description" content="Executiva Consultoria & Projetos">
-    <meta property="og:image" content="http://br220.teste.website/~cairod86/leal/assets/img/logo.png">
+    <meta property="og:url" content="http://br220.teste.website/~cairod86/thepitaco/">
+    <meta property="og:description" content="thepitaco">
+    <meta property="og:image" content="http://br220.teste.website/~cairod86/thepitaco/assets/img/logo.png">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/logo.png">

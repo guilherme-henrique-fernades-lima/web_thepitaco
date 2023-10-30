@@ -50,12 +50,11 @@ if ($stmt->rowCount() > 0) {
     <?php include "components/navbar.php"; ?>
     <div class="mx-auto max-w-7xl px-2 pt-4">
         <?php foreach ($blogs as $blog) { ?>
-            <h1 style="color: #013589;" class="text-center mt-3 text-3xl font-bold leading-9 tracking-tight dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-left md:text-3xl md:leading-14 flex justify-center"><?php echo $blog['name']; ?></h1>
             <div class="mb-8 mt-4 rounded-xl p-2 shadow-md shadow-blue-200">
                 <div class="flex justify-center">
                     <?php echo "<img class='lazy rounded-md h-full w-2/3 object-cover' src=" . $URI->base('/admin/uploads/blogs') . '/' . $blog['img'] . '>' ?>
                 </div>
-
+                <h1 class="text-color2 text-center mt-6 mb-6 text-3xl font-bold leading-9 tracking-tight dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-left md:text-3xl md:leading-14 flex justify-center"><?php echo $blog['name']; ?></h1>
                 <div>
                     <h2 class="title-font mt-5 p-4 text-md mb-1">
                         <?php echo $blog['description']; ?>

@@ -1,7 +1,6 @@
-<header class="flex justify-center space-x-64 items-center h-28">
+<div class="flex justify-center lg:flex-row lg:space-x-64 items-center h-28 lg:h-28">
   <a href="<?php echo $URI->base("home.php"); ?>" class="flex items-center">
-    <img class="w-full h-auto mr-12 mt-2" src="<?php echo $URI->base("/assets/img/logo.png"); ?>" class="logo" alt="logo" />
-    <span class="self-center text-xl font-semibold whitespace-nowrap"></span>
+    <img class="w-auto h-20 md:h-auto mt-2" src="<?php echo $URI->base("/assets/img/logo.png"); ?>" class="logo" alt="logo" />
   </a>
 
   <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-color1 rounded-lg lg:hidden focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="mobile-menu-2" aria-expanded="false">
@@ -14,7 +13,7 @@
     </svg>
   </button>
 
-  <div class="flex items-center space-x-32 bg-gray-200 py-2 px-2 rounded-lg">
+  <div class="hidden lg:flex items-center space-x-32 bg-gray-200 py-2 px-2 rounded-lg">
     <a href="anuncie-aqui.php" class="flex itens-center">
       <img class="ml-10 w-16" src="assets/img/anuncie1.png" class="logo" alt="logo" />
       <div>
@@ -24,4 +23,6 @@
 
     </a>
   </div>
-</header>
+</div>
+
+
